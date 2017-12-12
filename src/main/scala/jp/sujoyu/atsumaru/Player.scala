@@ -10,22 +10,30 @@ class Player(game: Game, var x: Double, var y: Double) extends GameObject() {
   container.setTransform(x, y)
 
   container.addChild({
-    val text = new Text("  ^\n/[_]\\", "30px Arial", "black")
-    val width = text.getMeasuredWidth()
-    val height = text.getMeasuredHeight()
+    val text = new Text("  ^  \n/[_]\\", "10px Arial", "black")
+    val width = 40
+    val height = 40
     text.setTransform(-width / 2, -height / 2)
-    text.cache(-width / 2, -height / 2, width, height)
+    text.cache(-width / 2, -height / 2, width, height * 2)
     text
   })
 
   game.stage.addChild(container)
+  game.gameObjects += this
 
   private var startDragX: Option[Double] = None
   private var startDragY: Option[Double] = None
   private var mouseDownX: Option[Double] = None
   private var mouseDownY: Option[Double] = None
 
+  var timeLapse = .0
   def render(delta: Double): Unit = {
+    timeLapse += delta / 1000
+    if (timeLapse > 0.5) {
+      timeLapse -= 0.5
+      new PlayerBullet(game, x - 5, y)
+    }
+
     container.setTransform(x, y)
   }
 

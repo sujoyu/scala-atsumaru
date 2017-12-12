@@ -8,7 +8,7 @@ class PressMoveLayer(game: Game) {
 
   container.hitArea = {
     val rect = new Shape
-    rect.graphics.beginFill("#000000").drawRect(0, 0, game.width, game.height)
+    rect.graphics.beginFill("#000000").drawRect(0, 0, 1, 1)
     rect
   }
 

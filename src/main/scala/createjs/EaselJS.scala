@@ -696,6 +696,7 @@ class StageGL extends Stage {
   def this(canvas: HTMLCanvasElement) = this()
   def this(canvas: String) = this()
   def setClearColor(color: String): Unit = js.native
+  def updateViewport(width: Double, height: Double): Unit = js.native
 }
 
 @js.native
