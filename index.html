@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The Scala Atsumaru Tutorial</title>
+    <style>
+        #game-canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+  <canvas id="game-canvas"></canvas>
+    <!-- Include JavaScript dependencies -->
+    <script type="text/javascript" src="./target/scala-2.12/scala-atsumaru-jsdeps.js"></script>
+    <!-- Include Scala.js compiled code -->
+    <script type="text/javascript" src="./target/scala-2.12/scala-atsumaru-opt.js"></script>
+  </body>
+</html>
